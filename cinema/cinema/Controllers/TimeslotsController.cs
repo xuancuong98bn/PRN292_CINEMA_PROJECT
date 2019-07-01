@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using cinema.Contexts;
 using cinema.Models;
 
 namespace cinema.Controllers
 {
     public class TimeslotsController : Controller
     {
-        private TimeslotDBContext db = new TimeslotDBContext();
+        private DBContext db = new DBContext();
 
         // GET: Timeslots
         public ActionResult Index()
@@ -46,7 +47,7 @@ namespace cinema.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,BeginTime,EndTime")] Timeslot timeslot)
+        public ActionResult Create([Bind(Include = "ID,BeginTime,EndTime,IsEnable")] Timeslot timeslot)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +79,7 @@ namespace cinema.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,BeginTime,EndTime")] Timeslot timeslot)
+        public ActionResult Edit([Bind(Include = "ID,BeginTime,EndTime,IsEnable")] Timeslot timeslot)
         {
             if (ModelState.IsValid)
             {

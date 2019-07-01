@@ -13,7 +13,7 @@ namespace cinema.Controllers
 {
     public class FilmsController : Controller
     {
-        private FilmDBContext db = new FilmDBContext();
+        private DBContext db = new DBContext();
 
         // GET: Films
         public ActionResult Index()
@@ -47,7 +47,7 @@ namespace cinema.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Code,Title,Author,Actor,PublicationDate,Content")] Film film)
+        public ActionResult Create([Bind(Include = "ID,Code,Title,Author,Actor,PublicationDate,ContentFilm,Image,IsEnable")] Film film)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace cinema.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Code,Title,Author,Actor,PublicationDate,Content")] Film film)
+        public ActionResult Edit([Bind(Include = "ID,Code,Title,Author,Actor,PublicationDate,ContentFilm,Image,IsEnable")] Film film)
         {
             if (ModelState.IsValid)
             {
@@ -105,6 +105,11 @@ namespace cinema.Controllers
             return View(film);
         }
 
+        /// <summary>
+        /// if(not ticket booked) { delete }    else {enable = false}
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // POST: Films/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

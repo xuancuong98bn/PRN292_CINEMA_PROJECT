@@ -6,18 +6,20 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using cinema.Contexts;
 using cinema.Models;
 
 namespace cinema.Controllers
 {
     public class RoomsController : Controller
     {
-        private RoomDBContext db = new RoomDBContext();
+        private DBContext roomDb = new DBContext();
+       
 
         // GET: Rooms
         public ActionResult Index()
         {
-            return View(db.Rooms.ToList());
+            return View(roomDb.Rooms.ToList());
         }
 
         // GET: Rooms/Details/5
@@ -27,7 +29,7 @@ namespace cinema.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Room room = db.Rooms.Find(id);
+            Room room = roomDb.Rooms.Find(id);
             if (room == null)
             {
                 return HttpNotFound();
@@ -46,12 +48,12 @@ namespace cinema.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Row,Columnn")] Room room)
+        public ActionResult Create([Bind(Include = "ID,Code,Name,RowQuantity,ColumnQuantity,IsEnable")] Room room)
         {
             if (ModelState.IsValid)
             {
-                db.Rooms.Add(room);
-                db.SaveChanges();
+                roomDb.Rooms.Add(room);
+                roomDb.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +67,7 @@ namespace cinema.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Room room = db.Rooms.Find(id);
+            Room room = roomDb.Rooms.Find(id);
             if (room == null)
             {
                 return HttpNotFound();
@@ -78,12 +80,12 @@ namespace cinema.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Row,Columnn")] Room room)
+        public ActionResult Edit([Bind(Include = "ID,Code,Name,RowQuantity,ColumnQuantity,IsEnable")] Room room)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(room).State = EntityState.Modified;
-                db.SaveChanges();
+                roomDb.Entry(room).State = EntityState.Modified;
+                roomDb.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(room);
@@ -96,7 +98,7 @@ namespace cinema.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Room room = db.Rooms.Find(id);
+            Room room = roomDb.Rooms.Find(id);
             if (room == null)
             {
                 return HttpNotFound();
@@ -109,9 +111,9 @@ namespace cinema.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Room room = db.Rooms.Find(id);
-            db.Rooms.Remove(room);
-            db.SaveChanges();
+            Room room = roomDb.Rooms.Find(id);
+            roomDb.Rooms.Remove(room);
+            roomDb.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -119,7 +121,7 @@ namespace cinema.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                roomDb.Dispose();
             }
             base.Dispose(disposing);
         }

@@ -5,10 +5,11 @@ using System.Web;
 
 namespace cinema.Models
 {
-    public class SeatType
+    public class Seattype
     {
         public int ID { get; set; }
-        public String Code { get; set; }
-        public String Name { get; set; }
+        public string Code { get; set; }
+        public string Name { get; set; }
+        public bool IsEnable { get; set; }
     }
 }

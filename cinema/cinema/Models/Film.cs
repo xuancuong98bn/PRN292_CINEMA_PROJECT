@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
@@ -27,9 +26,9 @@ namespace cinema.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime PublicationDate { get; set; }
-        public String Content { get; set; }
+        public String ContentFilm { get; set; }
 
         public String Image { get; set; }       //this to save image name
+        public bool IsEnable { get; set; }
     }
-
 }

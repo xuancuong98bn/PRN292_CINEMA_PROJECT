@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<cinema.Models.Film>
 
 @{
-    ViewBag.Title = "Film List";
+    ViewBag.Title = "Index";
 }
 
-<h2>Film List</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -27,43 +27,49 @@
             @Html.DisplayNameFor(model => model.PublicationDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Content)
+            @Html.DisplayNameFor(model => model.ContentFilm)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEnable)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Code)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Title)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Author)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Actor)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PublicationDate)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Content)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Image)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-    </td>
-</tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Actor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PublicationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContentFilm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEnable)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
 }
 
 </table>

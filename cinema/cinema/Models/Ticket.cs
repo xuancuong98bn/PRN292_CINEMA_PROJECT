@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
-
 
 namespace cinema.Models
 {
@@ -11,10 +9,8 @@ namespace cinema.Models
     {
         public int ID { get; set; }
         public int ShowtimeID { get; set; }
-        public int SeatID { get; set; }     //prom seatID -> price
-        public int status { get; set; } //-1 booked, 0: booking,   1: available
-
-        //room
-        //price
+        public int SeatID { get; set; }
+        public int Status { get; set; }     //0: available 
+                                            //1: booked
     }
 }

@@ -13,12 +13,12 @@ namespace cinema.Controllers
 {
     public class UsersController : Controller
     {
-        private UserDBContext db = new UserDBContext();
+        private DBContext db = new DBContext();
 
         // GET: Users
         public ActionResult Index()
         {
-            return View(db.Films.ToList());
+            return View(db.Users.ToList());
         }
 
         // GET: Users/Details/5
@@ -28,7 +28,7 @@ namespace cinema.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Films.Find(id);
+            User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -47,11 +47,11 @@ namespace cinema.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Username,Password,Fullname,Gender,Birthdate,Phone,RoleID")] User user)
+        public ActionResult Create([Bind(Include = "ID,Username,Password,Fullname,Gender,Birthdate,Phone,RoleID,IsEnable")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Films.Add(user);
+                db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace cinema.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Films.Find(id);
+            User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -79,7 +79,7 @@ namespace cinema.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Username,Password,Fullname,Gender,Birthdate,Phone,RoleID")] User user)
+        public ActionResult Edit([Bind(Include = "ID,Username,Password,Fullname,Gender,Birthdate,Phone,RoleID,IsEnable")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace cinema.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Films.Find(id);
+            User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace cinema.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Films.Find(id);
-            db.Films.Remove(user);
+            User user = db.Users.Find(id);
+            db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
