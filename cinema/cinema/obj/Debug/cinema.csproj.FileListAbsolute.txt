@@ -118,3 +118,5 @@ D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292_CINEMA_PROJECT\c
 D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292_CINEMA_PROJECT\cinema\cinema\obj\Debug\cinema.csproj.CopyComplete
 D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292_CINEMA_PROJECT\cinema\cinema\obj\Debug\cinema.dll
 D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292_CINEMA_PROJECT\cinema\cinema\obj\Debug\cinema.pdb
+D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292_CINEMA_PROJECT\cinema\cinema\obj\Debug\cinema.Migrations.Initial.resources
+D:\Study\Specialization\Specialization_5\PRN292\thayTien\PRN292_CINEMA_PROJECT\cinema\cinema\obj\Debug\cinema.csproj.GenerateResource.cache

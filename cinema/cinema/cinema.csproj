@@ -136,9 +136,16 @@
     <Compile Include="Areas\Admin\Controllers\RoomsController.cs" />
     <Compile Include="Areas\Admin\Controllers\TimeslotsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Controllers\HomePageController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907220949383_Initial.cs" />
+    <Compile Include="Migrations\201907220949383_Initial.Designer.cs">
+      <DependentUpon>201907220949383_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Film.cs" />
     <Compile Include="Models\PriceTable.cs" />
     <Compile Include="Models\Role.cs" />
@@ -159,6 +166,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\js\mystyle.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -178,6 +186,58 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\about-us.html" />
+    <Content Include="Views\article.html" />
+    <Content Include="Views\articles.html" />
+    <Content Include="Views\contact-us.html" />
+    <Content Include="Content\css\ie6.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\images\1page-img1.jpg" />
+    <Content Include="Content\images\1page-img2.jpg" />
+    <Content Include="Content\images\1page-img3.jpg" />
+    <Content Include="Content\images\1page-img4.jpg" />
+    <Content Include="Content\images\2page-img1.jpg" />
+    <Content Include="Content\images\2page-img2.jpg" />
+    <Content Include="Content\images\2page-img3.jpg" />
+    <Content Include="Content\images\3page-img1.jpg" />
+    <Content Include="Content\images\3page-img2.jpg" />
+    <Content Include="Content\images\3page-img3.jpg" />
+    <Content Include="Content\images\4page-img.jpg" />
+    <Content Include="Content\images\arrow.gif" />
+    <Content Include="Content\images\banner-bg.gif" />
+    <Content Include="Content\images\banner-img.png" />
+    <Content Include="Content\images\border-left.gif" />
+    <Content Include="Content\images\border-right.gif" />
+    <Content Include="Content\images\footer-left.gif" />
+    <Content Include="Content\images\footer-right.gif" />
+    <Content Include="Content\images\footer-tail.gif" />
+    <Content Include="Content\images\icon1-act.gif" />
+    <Content Include="Content\images\icon1.gif" />
+    <Content Include="Content\images\icon2-act.gif" />
+    <Content Include="Content\images\icon2.gif" />
+    <Content Include="Content\images\icon3-act.gif" />
+    <Content Include="Content\images\icon3.gif" />
+    <Content Include="Content\images\line-hor.gif" />
+    <Content Include="Content\images\link1-left.png" />
+    <Content Include="Content\images\link1-right.png" />
+    <Content Include="Content\images\link1-tail.gif" />
+    <Content Include="Content\images\link2-left.gif" />
+    <Content Include="Content\images\link2-right.gif" />
+    <Content Include="Content\images\link2-tail.gif" />
+    <Content Include="Content\images\nav-act.gif" />
+    <Content Include="Content\images\nav-bg.gif" />
+    <Content Include="Content\images\spacer.gif" />
+    <Content Include="Content\images\tail-bottom.gif" />
+    <Content Include="Content\images\tail-top.gif" />
+    <Content Include="Content\images\textarea-bg.gif" />
+    <Content Include="Views\index.html" />
+    <Content Include="Content\js\cufon-replace.js" />
+    <Content Include="Content\js\cufon-yui.js" />
+    <Content Include="Content\js\Gill_Sans_400.font.js" />
+    <Content Include="Content\js\ie_png.js" />
+    <Content Include="Content\js\jquery-1.4.2.min.js" />
+    <Content Include="Content\js\script.js" />
+    <Content Include="Views\sitemap.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -220,13 +280,14 @@
     <Content Include="Areas\Admin\Views\Rooms\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Rooms\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Rooms\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Default\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -240,6 +301,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201907220949383_Initial.resx">
+      <DependentUpon>201907220949383_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/ie6.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.4.2.min.js"></script>
+    <script src="~/Content/js/cufon-yui.js"></script>
+    <script src="~/Content/js/cufon-replace.js"></script>
+    <script src="~/Content/js/Gill_Sans_400.font.js"></script>
+    <script src="~/Content/js/script.js"></script>
+    <script src="~/Content/js/mystyle.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="js/ie_png.js"></script>
+    <script type="text/javascript">ie_png.fix('.png, .link1 span, .link1');</script>
+    <link href="css/ie6.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+</head>
+<body id="page1">
+    <!-- START PAGE SOURCE -->
+    <div class="tail-top">
+        <div class="tail-bottom">
+            <div id="main">
+                <div id="header">
+                    <div class="row-1">
+                        <div class="fleft"><a href="#">My <span>Cinema</span></a></div>
+                        <ul>
+                            <li><a href="#"><img src="~/Content/images/icon1-act.gif" alt="" /></a></li>
+                            <li><a href="#"><img src="~/Content/images/icon2.gif" alt="" /></a></li>
+                            <li><a href="#"><img src="~/Content/images/icon3.gif" alt="" /></a></li>
+                        </ul>
+                    </div>
+                    @RenderSection("Menu", true)
+                </div>
+                @RenderBody()
+                <div id="footer">
+                    <div class="left">
+                        <div class="right">
+                            <div class="footerlink">
+                                <p class="lf">Copyright &copy; 2019 <a href="#">SiteName</a> - All Rights Reserved</p>
+                                <p class="rf">Design by <a href="#">CuongNX</a></p>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript">Cufon.now();</script>
+    <!-- END PAGE SOURCE -->
+</body>
+</html>
