@@ -19,20 +19,20 @@ namespace cinema.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(string Username, string Password)
+        public ActionResult Index(User user)
         {
             if (ModelState.IsValid)
             {
-                var u = (User)db.Users.Where(user => user.Username == Username && user.Password == Password);
+                var u = db.Users.Where(us => us.Username == user.Username && us.Password == user.Password).FirstOrDefault();
                 if (u != null)
                 {
-                    var r = db.Roles.Select(o => o.ID == u.RoleID);
+                    var r = db.Roles.Where(o => o.ID == u.RoleID).FirstOrDefault();
                     if (r != null)
                     {
-                        string role = ((Role)r).Name;
+                        string role = r.Name;
                         switch (role)
                         {
-                            case "User":
+                            case "Customer":
                                 return RedirectToAction("Index", "Home");
                             case "Admin":
                                 return RedirectToAction("Index", "Home", new { area = "Admin" });

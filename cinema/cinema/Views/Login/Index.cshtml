@@ -22,6 +22,7 @@
             {
                 @Html.AntiForgeryToken()
                 <hr />
+                <div class="text-danger">@ViewBag.Error</div>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="text-feild">
                     @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "text-label" })
