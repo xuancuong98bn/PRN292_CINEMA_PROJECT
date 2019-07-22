@@ -1,0 +1,42 @@
+﻿@model cinema.Models.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Menu{
+    <div class="row-2">
+        <ul>
+            <li><a href="index.html" class="active">Login</a></li>
+            <li><a href="about-us.html">Register</a></li>
+            <li><a href="articles.html">FAQ</a></li>
+            <li><a href="contact-us.html">Regulations</a></li>
+            @*<li class="last"><a href="sitemap.html">Sitemap</a></li>*@
+        </ul>
+    </div>
+}
+<div id="content">
+    <div id="slogan" style="padding:20px 0; height:auto">
+        <div class="login">
+            <h2><span>Login</span></h2>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="text-feild">
+                    @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "text-label" })
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "text-textbox", @placeholder = "Username" } })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="text-feild">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "text-label" })
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "text-textbox", @placeholder = "Password" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+                <input type="submit" value="Login" class="text-button" />
+            }
+        </div>
+    </div>
+</div>
+

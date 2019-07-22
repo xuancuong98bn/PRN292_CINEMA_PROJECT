@@ -1,0 +1,40 @@
+.extra-wrap {
+    zoom: 1;
+}
+
+.login {
+    padding: 36px 50px;
+    margin: 0 auto;
+    text-align: center;
+    width: 400px;
+    box-shadow: 5px 5px 10px rgb(128, 128, 128);
+    border-radius: 15px;
+}
+
+.text-feild {
+    margin: 10px;
+}
+
+.text-label {
+    padding-right: 10px;
+    font-family: Bahnschrift;
+    font-size: 14px;
+}
+
+.text-textbox {
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    height: 35px;
+    width:60%;
+    padding: 0 10px;
+}
+
+.text-button {
+    margin-left:50%;
+    padding:10px 50px;
+    font-family:'Global Monospace';
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(150, 150, 150);
+}
