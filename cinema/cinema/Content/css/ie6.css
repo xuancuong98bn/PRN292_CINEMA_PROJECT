@@ -3,7 +3,7 @@
 }
 
 .login {
-    padding: 36px 50px;
+    padding: 20px 50px;
     margin: 0 auto;
     text-align: center;
     width: 400px;
@@ -37,4 +37,9 @@
     border-radius: 10px;
     border: none;
     background-color: rgb(150, 150, 150);
+}
+.my-text-error {
+    font-family: 'Global Monospace';
+    color: red;
+    margin-top:10px;
 }

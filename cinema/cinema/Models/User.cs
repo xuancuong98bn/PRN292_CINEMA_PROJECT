@@ -10,10 +10,10 @@ namespace cinema.Models
     {
         public int ID { get; set; }
 
-        [StringLength(60, MinimumLength = 3)]
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "Username must be length from 3 to 60")]
         public String Username { get; set; }
 
-        [StringLength(60, MinimumLength = 6)]
+        [StringLength(60, MinimumLength = 6, ErrorMessage = "Password must be length from 3 to 60")]
         public String Password { get; set; }
 
         [StringLength(60, MinimumLength = 3)]

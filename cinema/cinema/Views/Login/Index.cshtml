@@ -15,25 +15,25 @@
     </div>
 }
 <div id="content">
-    <div id="slogan" style="padding:20px 0; height:auto">
+    <div id="slogan">
         <div class="login">
             <h2><span>Login</span></h2>
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
                 <hr />
-                <div class="text-danger">@ViewBag.Error</div>
+                <div class="my-text-error">@ViewBag.Error</div>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="text-feild">
                     @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "text-label" })
                     @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "text-textbox", @placeholder = "Username" } })
-                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "my-text-error" })
                 </div>
 
                 <div class="text-feild">
                     @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "text-label" })
                     @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "text-textbox", @placeholder = "Password" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "my-text-error" })
                 </div>
                 <input type="submit" value="Login" class="text-button" />
             }
