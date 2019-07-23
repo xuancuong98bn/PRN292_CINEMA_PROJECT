@@ -146,7 +146,12 @@
     <Compile Include="Migrations\201907220949383_Initial.Designer.cs">
       <DependentUpon>201907220949383_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907231736528_InitialCreate.cs" />
+    <Compile Include="Migrations\201907231736528_InitialCreate.Designer.cs">
+      <DependentUpon>201907231736528_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelsView\BookingView.cs" />
     <Compile Include="Models\Film.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Room.cs" />
@@ -318,6 +323,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201907220949383_Initial.resx">
       <DependentUpon>201907220949383_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907231736528_InitialCreate.resx">
+      <DependentUpon>201907231736528_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

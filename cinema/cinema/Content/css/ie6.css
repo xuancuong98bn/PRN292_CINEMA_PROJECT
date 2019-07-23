@@ -45,9 +45,10 @@
     margin-top: 10px;
 }
 
-.book-wrap{
-    width:100%;
+.book-wrap {
+    width: 100%;
 }
+
 .button-book {
     margin: 0 auto;
     padding: 15px;
@@ -65,3 +66,23 @@
         font-family: Gabriola;
         font-size: 30px;
     }
+
+.showtime-label {
+    margin-left: 165px;
+}
+
+.showtime-wrap{
+    width:62%;
+    float:right;
+   
+}
+.button-times {
+    margin: 5px;
+    padding: 5px;
+    background-color: rgb(150, 150, 150);
+    width: 15%;
+    color: red;
+    border-radius:5px;
+    text-align:center;
+    float:left;
+}

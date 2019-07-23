@@ -1,4 +1,4 @@
-﻿@model cinema.Models.Film
+﻿@model cinema.ModelsView.BookingView
 @{
     ViewBag.Title = "Booking Step 1";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -20,10 +20,18 @@
         <div class="border-right">
             <div class="border-left">
                 <div class="inner">
-                    <h3><b>@Model.Title</b>             <span>Showtimes</span></h3>
-                    <div class="img-box1"><img src="~/Content/images/@Model.Image" alt="" /><p>@Model.ContentFilm</p></div>
+                    <h3><b>@Model.Film.Title</b><span class="showtime-label">Showtimes</span></h3>
+                    <div class="img-box1">
+                        <img src="~/Content/images/@Model.Film.Image" alt="" />
+                        <div class="showtime-wrap">
+                            @foreach (var item in Model.ListSlot)
+                            {
+                                <div class="button-times">@item.TimeslotID</div>
+                            }
+                        </div>
+                    </div>
                     <div class="book-wrap">
-                        <div class="button-book"><a href="@Url.Action("Create", "Book", new { ID = Model.ID })">Book Now!</a></div>
+                        <div class="button-book"><a href="@Url.Action("Create", "Book", new { ID = Model.Film.ID })">Next!</a></div>
                     </div>
                 </div>
             </div>

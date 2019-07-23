@@ -33,7 +33,7 @@ namespace cinema.Controllers
                         switch (role)
                         {
                             case "Customer":
-                                return RedirectToAction("Index", "Home");
+                                return RedirectToAction("Index", "HomePage");
                             case "Admin":
                                 return RedirectToAction("Index", "Home", new { area = "Admin" });
                         }
