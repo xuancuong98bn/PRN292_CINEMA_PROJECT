@@ -127,7 +127,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
     <Compile Include="Contexts\DBContext.cs" />
     <Compile Include="Areas\Admin\Controllers\BookingController.cs" />
     <Compile Include="Areas\Admin\Controllers\FilmsController.cs" />
@@ -149,7 +148,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Film.cs" />
-    <Compile Include="Models\PriceTable.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\Room_Seattype.cs" />
@@ -177,6 +175,16 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Seats\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Seats\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Seats\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Seats\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Seats\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Room_Seattype\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Room_Seattype\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Room_Seattype\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Room_Seattype\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Room_Seattype\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

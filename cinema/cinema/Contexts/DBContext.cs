@@ -10,7 +10,6 @@ namespace cinema.Contexts
     public class DBContext : DbContext
     {
         public DbSet<Film> Films { get; set; }
-        public DbSet<PriceTable> PriceTables { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Room_Seattype> Room_Seattypes { get; set; }
         public DbSet<Room> Rooms { get; set; }
