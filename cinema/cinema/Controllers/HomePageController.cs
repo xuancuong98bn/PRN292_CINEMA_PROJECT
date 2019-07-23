@@ -13,7 +13,7 @@ namespace cinema.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(db.Films.Take(3).OrderBy(f => f.PublicationDate).ToList());
+            return View(db.Films.Take(3).OrderByDescending(f => f.PublicationDate).ToList());
         }
     }
 }
