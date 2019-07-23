@@ -10,6 +10,7 @@ namespace cinema.Models
         public int ID { get; set; }
         public int FilmID { get; set; }
         public int SlotID { get; set; }
+        public int OriginPrice { get; set; }
         public bool IsEnable { get; set; }
     }
 }

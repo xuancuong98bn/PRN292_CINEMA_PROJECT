@@ -14,7 +14,7 @@ namespace cinema.Areas.Admin.Controllers
     public class RoomsController : Controller
     {
         private DBContext roomDb = new DBContext();
-       
+
 
         // GET: Rooms
         public ActionResult Index()
@@ -54,10 +54,15 @@ namespace cinema.Areas.Admin.Controllers
             {
                 roomDb.Rooms.Add(room);
                 roomDb.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                //return RedirectToAction("Index");
 
+                //go to create controller _ Seat
+                return RedirectToAction("Create", "Room_Seattype", new { RoomId = room.ID});
+            }
             return View(room);
+
+
+
         }
 
         // GET: Rooms/Edit/5
@@ -114,6 +119,9 @@ namespace cinema.Areas.Admin.Controllers
             Room room = roomDb.Rooms.Find(id);
             roomDb.Rooms.Remove(room);
             roomDb.SaveChanges();
+            //dis enable seat of this room
+
+            //      Seat seat = roomDb.Seats.Find();
             return RedirectToAction("Index");
         }
 
