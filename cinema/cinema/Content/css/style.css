@@ -319,6 +319,7 @@ h4 {
     line-height: 1.2em;
     letter-spacing: -1px;
     color: #2c6d9a;
+    margin-top: 18px;
     margin-bottom: 18px;
 }
 
@@ -492,7 +493,7 @@ h4 {
     height: auto;
     padding: 15px 0;
     position: relative;
-    background: url(../images/banner-bg.gif) no-repeat left top;
+    background: url(../images/banner-bg-2.gif) no-repeat left top;
     color: #1d1d1d;
 }
 
