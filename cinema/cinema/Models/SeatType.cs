@@ -10,6 +10,7 @@ namespace cinema.Models
         public int ID { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
+        public int PlusPrice { get; set; }
         public bool IsEnable { get; set; }
     }
 }

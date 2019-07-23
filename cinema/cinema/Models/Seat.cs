@@ -9,6 +9,7 @@ namespace cinema.Models
     {
         public int ID { get; set; }
         public int RoomID { get; set; }
+        public int SeattypeID { get; set; }
         public int Rowth { get; set; }
         public int Columnth { get; set; }
         public bool IsEnable { get; set; }

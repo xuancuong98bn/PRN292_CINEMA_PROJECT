@@ -10,6 +10,7 @@ namespace cinema.Models
         public int ID { get; set; }
         public int ShowtimeID { get; set; }
         public int SeatID { get; set; }
+        public int Price { get; set; }
         public int Status { get; set; }     //0: available 
                                             //1: booked
     }
