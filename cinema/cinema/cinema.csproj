@@ -280,7 +280,7 @@
     <Content Include="Areas\Admin\Views\Rooms\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Rooms\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Rooms\Index.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\HomePage\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
