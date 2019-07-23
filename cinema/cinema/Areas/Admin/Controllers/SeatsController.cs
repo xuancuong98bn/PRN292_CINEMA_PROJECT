@@ -11,112 +11,117 @@ using cinema.Models;
 
 namespace cinema.Areas.Admin.Controllers
 {
-    public class FilmsController : Controller
+    public class SeatsController : Controller
     {
         private DBContext db = new DBContext();
 
-        // GET: Films
-        public ActionResult Index()
+        // GET: Admin/Seats
+        public ActionResult Index(String keyword, int seattypeCode = 0)
         {
-            return View(db.Films.ToList());
+            var seattypes = db.Seattypes.ToList();
+            ViewBag.SeattypeID = new SelectList(seattypes, "Code", "Name");
+            return View(db.Seats.ToList());
         }
 
-        // GET: Films/Details/5
+        // GET: Admin/Seats/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Film film = db.Films.Find(id);
-            if (film == null)
+            Seat seat = db.Seats.Find(id);
+            if (seat == null)
             {
                 return HttpNotFound();
             }
-            return View(film);
+            return View(seat);
         }
 
-        // GET: Films/Create
-        public ActionResult Create()
+        // GET: Admin/Seats/Create
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
+
+        // GET: Admin/Seats/Create
+        public ActionResult Create(int RoomId)
         {
-            return View();
+            Seat seat = new Seat();
+            seat.RoomID = RoomId;
+            return View(seat);
         }
 
-        // POST: Films/Create
+        // POST: Admin/Seats/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Code,Title,Author,Actor,PublicationDate,ContentFilm,Image,IsEnable")] Film film)
+        public ActionResult Create([Bind(Include = "ID,RoomID,Rowth,Columnth,IsEnable")] Seat seat)
         {
             if (ModelState.IsValid)
             {
-                db.Films.Add(film);
+                db.Seats.Add(seat);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(film);
+            return View(seat);
         }
 
-        // GET: Films/Edit/5
+        // GET: Admin/Seats/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Film film = db.Films.Find(id);
-            if (film == null)
+            Seat seat = db.Seats.Find(id);
+            if (seat == null)
             {
                 return HttpNotFound();
             }
-            return View(film);
+            return View(seat);
         }
 
-        // POST: Films/Edit/5
+        // POST: Admin/Seats/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Code,Title,Author,Actor,PublicationDate,ContentFilm,Image,IsEnable")] Film film)
+        public ActionResult Edit([Bind(Include = "ID,RoomID,Rowth,Columnth,IsEnable")] Seat seat)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(film).State = EntityState.Modified;
+                db.Entry(seat).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(film);
+            return View(seat);
         }
 
-        // GET: Films/Delete/5
+        // GET: Admin/Seats/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Film film = db.Films.Find(id);
-            if (film == null)
+            Seat seat = db.Seats.Find(id);
+            if (seat == null)
             {
                 return HttpNotFound();
             }
-            return View(film);
+            return View(seat);
         }
 
-        /// <summary>
-        /// if(not ticket booked) { delete }    else {enable = false}
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        // POST: Films/Delete/5
+        // POST: Admin/Seats/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Film film = db.Films.Find(id);
-            db.Films.Remove(film);
+            Seat seat = db.Seats.Find(id);
+            db.Seats.Remove(seat);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

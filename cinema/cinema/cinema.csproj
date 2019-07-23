@@ -127,7 +127,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Room_SeattypeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SeatsController.cs" />
     <Compile Include="Contexts\DBContext.cs" />
     <Compile Include="Areas\Admin\Controllers\BookingController.cs" />
     <Compile Include="Areas\Admin\Controllers\FilmsController.cs" />
@@ -139,8 +140,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907231434174_InitialCreate.cs" />
+    <Compile Include="Migrations\201907231434174_InitialCreate.Designer.cs">
+      <DependentUpon>201907231434174_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Film.cs" />
-    <Compile Include="Models\PriceTable.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\Room_Seattype.cs" />
@@ -167,6 +172,16 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Seats\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Seats\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Seats\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Seats\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Seats\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Room_Seattype\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Room_Seattype\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Room_Seattype\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Room_Seattype\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Room_Seattype\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -224,7 +239,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Default\" />
     <Folder Include="Controllers\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
@@ -240,6 +254,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201907231434174_InitialCreate.resx">
+      <DependentUpon>201907231434174_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
