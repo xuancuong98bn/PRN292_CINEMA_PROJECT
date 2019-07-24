@@ -78,21 +78,17 @@ namespace cinema.Controllers
                 var seat = db.Seats.Where(s => s.RoomID == roomID && s.Rowth == row && s.Columnth == column).SingleOrDefault();
                 if (seat == null || seat.IsEnable == false)
                 {
-                    RedirectToAction("Index", "Movies");
+                    return RedirectToAction("Index", "Movies");
                 }
                 else
                 {
-
+                    int showtimeID = (int)Session["ShowtimeID"];
+                    var stPrice = db.Showtimes.Find(showtimeID).OriginPrice;
+                    var seatPrice = db.Seattypes.Find(seat.SeattypeID).PlusPrice;
+                    Ticket t = new Ticket() { ShowtimeID = showtimeID, SeatID = seat.ID, Status = 1, Price = stPrice + seatPrice };
+                    TicketView tv = new TicketView(t);
+                    return View(tv);
                 }
-                var CurrFilm = db.Films.Find(FilmID);
-                Session.Add("ShowtimeID", ShowtimeID);
-                Session.Add("RoomID", RoomID);
-                Session.Add("CurrFilm", CurrFilm);
-                var seats = db.Seats.Where(s => s.RoomID == RoomID).ToList();
-                ViewBag.SeatTypes = db.Seattypes.ToList();
-                ViewBag.Room = db.Rooms.Find(RoomID);
-                ViewBag.CurrFilm = CurrFilm;
-                return View(seats);
             }
             else
             {

@@ -152,6 +152,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelsView\BookingView.cs" />
+    <Compile Include="ModelsView\TicketView.cs" />
     <Compile Include="Models\Film.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Room.cs" />
@@ -302,6 +303,7 @@
     <Content Include="Views\Movies\Detail.cshtml" />
     <Content Include="Views\Book\Step1.cshtml" />
     <Content Include="Views\Book\Step2.cshtml" />
+    <Content Include="Views\Book\Step3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
