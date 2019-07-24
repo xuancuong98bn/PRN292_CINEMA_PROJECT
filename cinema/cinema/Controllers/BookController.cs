@@ -20,30 +20,37 @@ namespace cinema.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create(int? id)
+        public ActionResult Step1(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var listSlotID = db.Showtimes.Where(s => s.FilmID == id).Select(s => s.SlotID).ToList();
-            if (listSlotID.Count == 0)
+            var listShowTime = db.Showtimes.Where(s => s.FilmID == id).ToList();
+            if (listShowTime.Count == 0)
             {
                 return HttpNotFound();
             }
             List<Slot> listSlot = new List<Slot>();
             List<Timeslot> listTimeSlot = new List<Timeslot>();
-            foreach (int i in listSlotID)
+            foreach (var i in listShowTime)
             {
-                Slot a = db.Slots.Find(i);
+                Slot a = db.Slots.Find(i.SlotID);
                 listSlot.Add(a);
                 int b = a.TimeslotID;
                 Timeslot c = db.Timeslots.Find(b);
                 listTimeSlot.Add(c);
             }
             Film f = db.Films.Find(id);
-            BookingView bkv = new BookingView(f, listSlot, listTimeSlot);
+            BookingView bkv = new BookingView(f, listShowTime, listSlot, listTimeSlot);
             return View(bkv);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Step2(BookingView bkv, int ShowtimeID)
+        {
+            return View();
         }
     }
 }

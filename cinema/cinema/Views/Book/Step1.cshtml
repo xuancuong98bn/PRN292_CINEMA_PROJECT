@@ -24,14 +24,21 @@
                     <div class="img-box1">
                         <img src="~/Content/images/@Model.Film.Image" alt="" />
                         <div class="showtime-wrap">
-                            @foreach (var item in Model.ListSlot)
+                            @using (Html.BeginForm("Step2", "Book", FormMethod.Post, new { id = "form1" }))
                             {
-                                <div class="button-times">@item.TimeslotID</div>
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="ModelBookingView" value='@Model' />
+                                <input type="hidden" name="ShowtimeID" id="ShowtimeID" value='0' />
+                                for (int i = 0; i < Model.ListTimeSlot.Count; i++)
+                                {
+                                    <div class="button-times" onclick="submitForm(@Model.ListShowtime[i].ID)">
+                                        @Model.ListTimeSlot[i].BeginTime.ToShortTimeString() - @Model.ListTimeSlot[i].EndTime.ToShortTimeString()
+                                    </div>
+                                }
                             }
                         </div>
                     </div>
                     <div class="book-wrap">
-                        <div class="button-book"><a href="@Url.Action("Create", "Book", new { ID = Model.Film.ID })">Next!</a></div>
                     </div>
                 </div>
             </div>
@@ -40,3 +47,9 @@
     <div class="content">
     </div>
 </div>
+<script>
+    function submitForm(stID) {
+        document.getElementById("ShowtimeID").value = stID;
+        document.getElementById("form1").submit();
+    }
+</script>

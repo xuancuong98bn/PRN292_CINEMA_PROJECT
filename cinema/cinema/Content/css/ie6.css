@@ -71,18 +71,24 @@
     margin-left: 165px;
 }
 
-.showtime-wrap{
-    width:62%;
-    float:right;
-   
+.showtime-wrap {
+    width: 62%;
+    float: right;
 }
+
 .button-times {
     margin: 5px;
-    padding: 5px;
-    background-color: rgb(150, 150, 150);
-    width: 15%;
+    padding: 15px;
+    background-color: rgb(202, 201, 201);
+    width: auto;
     color: red;
-    border-radius:5px;
-    text-align:center;
-    float:left;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    float: left;
 }
+
+    .button-times:hover {
+        background-color: red;
+        color: white;
+    }

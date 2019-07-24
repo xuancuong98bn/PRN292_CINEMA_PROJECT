@@ -300,7 +300,8 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Movies\Detail.cshtml" />
-    <Content Include="Views\Book\Create.cshtml" />
+    <Content Include="Views\Book\Step1.cshtml" />
+    <Content Include="Views\Book\Step2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
