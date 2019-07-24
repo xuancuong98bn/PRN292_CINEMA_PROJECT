@@ -304,6 +304,7 @@
     <Content Include="Views\Book\Step1.cshtml" />
     <Content Include="Views\Book\Step2.cshtml" />
     <Content Include="Views\Book\Step3.cshtml" />
+    <Content Include="Views\Book\Step4.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -61,6 +61,11 @@
     background-color: rgb(239, 28, 22);
 }
 
+    .button-book:hover {
+        background-color: rgb(123, 246, 15);
+        color: rgb(253, 255, 40);
+    }
+
     .button-book a {
         text-decoration: none;
         font-family: Gabriola;
@@ -114,7 +119,14 @@
         color: green;
     }
 
-    .booked {
-        background-color: red;
-        color: white;
-    }
+.booked {
+    background-color: red;
+    color: white;
+}
+
+.inforticket-wrap {
+    width: 62%;
+    float: right;
+    color: white;
+    font-size: 15px;
+}

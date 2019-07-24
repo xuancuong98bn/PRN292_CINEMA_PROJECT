@@ -29,6 +29,8 @@ namespace cinema.Controllers
                     var r = db.Roles.Where(o => o.ID == u.RoleID).FirstOrDefault();
                     if (r != null)
                     {
+                        Session.Add("user", u);
+                        Session.Add("role", r);
                         string role = r.Name;
                         switch (role)
                         {

@@ -52,15 +52,14 @@ namespace cinema.Controllers
         {
             if (ShowtimeID != 0 && RoomID != 0)
             {
-                var CurrFilm = db.Films.Find(FilmID); 
+                var CurrFilm = db.Films.Find(FilmID);
                 Session.Add("ShowtimeID", ShowtimeID);
                 Session.Add("RoomID", RoomID);
                 Session.Add("CurrFilm", CurrFilm);
-                var seats = db.Seats.Where(s => s.RoomID == RoomID).ToList();
                 ViewBag.SeatTypes = db.Seattypes.ToList();
                 ViewBag.Room = db.Rooms.Find(RoomID);
                 ViewBag.CurrFilm = CurrFilm;
-                return View(seats);
+                return View(db.Tickets.Where(t => t.ShowtimeID == ShowtimeID).ToList());
             }
             else
             {
@@ -74,7 +73,7 @@ namespace cinema.Controllers
         {
             if (row != 0 && column != 0)
             {
-                var roomID = (int) Session["RoomID"];
+                var roomID = (int)Session["RoomID"];
                 var seat = db.Seats.Where(s => s.RoomID == roomID && s.Rowth == row && s.Columnth == column).SingleOrDefault();
                 if (seat == null || seat.IsEnable == false)
                 {
@@ -87,12 +86,43 @@ namespace cinema.Controllers
                     var seatPrice = db.Seattypes.Find(seat.SeattypeID).PlusPrice;
                     Ticket t = new Ticket() { ShowtimeID = showtimeID, SeatID = seat.ID, Status = 1, Price = stPrice + seatPrice };
                     TicketView tv = new TicketView(t);
+                    Session.Add("TicketV", tv);
                     return View(tv);
                 }
             }
             else
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Step4()
+        {
+            TicketView tv = (TicketView)Session["TicketV"];
+            User user = (User)Session["user"];
+            if (user != null)
+            {
+                if (tv != null)
+                {
+                    db.Tickets.Add(tv.Ticket);
+                    db.SaveChanges();
+                    var ticket = db.Tickets.Where(t => t.ShowtimeID == tv.Ticket.ShowtimeID && t.SeatID == tv.Ticket.SeatID).SingleOrDefault();
+                    User_Ticket ut = new User_Ticket() { UserID = user.ID, TicketID = ticket.ID, IsEnable = true, Booktime = DateTime.Now };
+                    db.User_Tickets.Add(ut);
+                    db.SaveChanges();
+                    Session.Remove("TicketV");
+                    return View(tv);
+                }
+                else
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
             }
         }
     }

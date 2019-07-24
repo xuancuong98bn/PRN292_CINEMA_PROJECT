@@ -1,6 +1,6 @@
 ﻿@model cinema.ModelsView.TicketView
 @{
-    ViewBag.Title = "Booking Step 3";
+    ViewBag.Title = "Booking Step 4";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section Menu{
@@ -20,24 +20,19 @@
         <div class="border-right">
             <div class="border-left">
                 <div class="inner">
-                    <h3><b>@Model.Film.Title</b><span class="showtime-label">Ticket Information</span></h3>
+                    <h3><b>@Model.Film.Title</b><span class="showtime-label">Booking Successfully !!</span></h3>
                     <div class="img-box1">
                         <img src="~/Content/images/@Model.Film.Image" alt="" />
                         <div class="inforticket-wrap">
-                            @using (Html.BeginForm("Step4", "Book", FormMethod.Post, new { id = "form1" }))
-                            {
-                                @Html.AntiForgeryToken()
-                                <div>Movie: @Model.Film.Title</div>
-                                <div>Room Name: @Model.Room.Name</div>
-                                <div>Time Slot: @Model.Timeslot.BeginTime.ToShortTimeString() - @Model.Timeslot.EndTime.ToShortTimeString()</div>
-                                <div>Seat: @Model.Seat.Rowth - @Model.Seat.Columnth</div>
-                                <div>Seat Type: @Model.Seattype.Name</div>
-                                <div>Total Price: @Model.Ticket.Price</div>
-                            }
+                            <div>Movie: @Model.Film.Title</div>
+                            <div>Room Name: @Model.Room.Name</div>
+                            <div>Time Slot: @Model.Timeslot.BeginTime.ToShortTimeString() - @Model.Timeslot.EndTime.ToShortTimeString()</div>
+                            <div>Seat: @Model.Seat.Rowth - @Model.Seat.Columnth</div>
+                            <div>Seat Type: @Model.Seattype.Name</div>
+                            <div>Total Price: @Model.Ticket.Price</div>
                         </div>
                     </div>
                     <div class="book-wrap">
-                        <div class="button-book" onclick="submitForm()"><a>Confirm & Pay!</a></div>
                     </div>
                 </div>
             </div>
