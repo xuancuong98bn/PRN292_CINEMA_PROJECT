@@ -146,7 +146,13 @@
     <Compile Include="Migrations\201907220949383_Initial.Designer.cs">
       <DependentUpon>201907220949383_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907231736528_InitialCreate.cs" />
+    <Compile Include="Migrations\201907231736528_InitialCreate.Designer.cs">
+      <DependentUpon>201907231736528_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelsView\BookingView.cs" />
+    <Compile Include="ModelsView\TicketView.cs" />
     <Compile Include="Models\Film.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Room.cs" />
@@ -295,7 +301,10 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Movies\Detail.cshtml" />
-    <Content Include="Views\Book\Create.cshtml" />
+    <Content Include="Views\Book\Step1.cshtml" />
+    <Content Include="Views\Book\Step2.cshtml" />
+    <Content Include="Views\Book\Step3.cshtml" />
+    <Content Include="Views\Book\Step4.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -318,6 +327,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201907220949383_Initial.resx">
       <DependentUpon>201907220949383_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907231736528_InitialCreate.resx">
+      <DependentUpon>201907231736528_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

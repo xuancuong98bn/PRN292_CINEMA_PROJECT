@@ -45,7 +45,7 @@
                     <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
                     <img src="~/Content/images/@item.Image" alt="" />
                     <p>@Html.DisplayFor(modelItem => item.ContentFilm)</p>
-                    <div class="wrapper"><a href="#" class="link2"><span><span>Read More</span></span></a></div>
+                    <div class="wrapper"><a href="@Url.Action("Detail", "Movies", new { ID = item.ID })" class="link2"><span><span>Read More</span></span></a></div>
                 </li>
             }
             <li class="clear">&nbsp;</li>

@@ -29,11 +29,13 @@ namespace cinema.Controllers
                     var r = db.Roles.Where(o => o.ID == u.RoleID).FirstOrDefault();
                     if (r != null)
                     {
+                        Session.Add("user", u);
+                        Session.Add("role", r);
                         string role = r.Name;
                         switch (role)
                         {
                             case "Customer":
-                                return RedirectToAction("Index", "Home");
+                                return RedirectToAction("Index", "HomePage");
                             case "Admin":
                                 return RedirectToAction("Index", "Home", new { area = "Admin" });
                         }

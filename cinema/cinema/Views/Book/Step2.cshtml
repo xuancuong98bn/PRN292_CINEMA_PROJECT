@@ -1,0 +1,64 @@
+﻿@model IEnumerable<cinema.Models.Ticket>
+@{
+    ViewBag.Title = "Booking Step 2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Menu{
+    <div class="row-2">
+        <ul>
+            <li><a href="@Url.Action("Index", "HomePage")">Home</a></li>
+            <li><a href="@Url.Action("Index", "Movies")" class="active">Movies</a></li>
+            <li><a href="contact-us.html">Contacts</a></li>
+            <li><a href="articles.html">My Account</a></li>
+            @*<li class="last"><a href="sitemap.html">Sitemap</a></li>*@
+        </ul>
+    </div>
+}
+
+<div id="content">
+    <div class="box">
+        <div class="border-right">
+            <div class="border-left">
+                <div class="inner">
+                    <h3><b>@ViewBag.CurrFilm.Title</b><span class="seat-label">Screen</span></h3>
+                    <div class="img-box1">
+                        <img src="~/Content/images/@ViewBag.CurrFilm.Image" alt="" />
+                        <div class="showtime-wrap">
+                            @using (Html.BeginForm("Step3", "Book", FormMethod.Post, new { id = "form1" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @*<input type="hidden" name="ModelBookingView" value='@Model' />*@
+                                <input type="hidden" name="row" id="row" value='0' />
+                                <input type="hidden" name="column" id="column" value='0' />
+                                for (int i = 1; i <= ViewBag.Room.RowQuantity; i++)
+                                {
+                                    for (int j = 1; j <= ViewBag.Room.ColumnQuantity; j++)
+                                    {
+                                        int number = (i - 1) * ViewBag.Room.RowQuantity + j;
+                                        bool booked = Model.Where(s => s.SeatID == number).ToList().Count == 0;
+                                        <div class="button-seat @(!booked?"booked":"")" onclick="submitForm(@i, @j, @booked)">
+                                            @number
+                                        </div>
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="book-wrap">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+    </div>
+</div>
+<script>
+    function submitForm(i, j, booked) {
+        if (booked) {
+            document.getElementById("row").value = i;
+            document.getElementById("column").value = j;
+            document.getElementById("form1").submit();
+        }
+    }
+</script>
