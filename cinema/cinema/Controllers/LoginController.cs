@@ -1,5 +1,6 @@
 ﻿using cinema.Contexts;
 using cinema.Models;
+using cinema.ModelsView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,12 @@ namespace cinema.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Remove("user");
+            return RedirectToAction("Index", "Login");
         }
 
         [HttpPost]
@@ -35,7 +42,15 @@ namespace cinema.Controllers
                         switch (role)
                         {
                             case "Customer":
-                                return RedirectToAction("Index", "HomePage");
+                                TicketView tv = (TicketView)Session["TicketV"];
+                                if (tv != null)
+                                {
+                                    return RedirectToAction("Step3", "Book");
+                                }
+                                else
+                                {
+                                    return RedirectToAction("Index", "HomePage");
+                                }
                             case "Admin":
                                 return RedirectToAction("Index", "Home", new { area = "Admin" });
                         }

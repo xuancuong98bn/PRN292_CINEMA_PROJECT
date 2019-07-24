@@ -1,4 +1,4 @@
-﻿@model IEnumerable<cinema.Models.Film>
+﻿@model cinema.ModelsView.HomeFilmView
 @{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -39,7 +39,39 @@
     <div class="content">
         <h3>Fresh <span>Movies</span></h3>
         <ul class="movies">
-            @foreach (var item in Model)
+            @foreach (var item in Model.ListFreshFilm)
+            {
+                <li>
+                    <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+                    <img src="~/Content/images/@item.Image" alt="" />
+                    <p>@Html.DisplayFor(modelItem => item.ContentFilm)</p>
+                    <div class="wrapper"><a href="@Url.Action("Detail", "Movies", new { ID = item.ID })" class="link2"><span><span>Read More</span></span></a></div>
+                </li>
+            }
+            <li class="clear">&nbsp;</li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h3>Showing <span>Movies</span></h3>
+        <ul class="movies">
+            @foreach (var item in Model.ListShowingFilm)
+            {
+                <li>
+                    <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+                    <img src="~/Content/images/@item.Image" alt="" />
+                    <p>@Html.DisplayFor(modelItem => item.ContentFilm)</p>
+                    <div class="wrapper"><a href="@Url.Action("Detail", "Movies", new { ID = item.ID })" class="link2"><span><span>Read More</span></span></a></div>
+                </li>
+            }
+            <li class="clear">&nbsp;</li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h3>Comming soon <span>Movies</span></h3>
+        <ul class="movies">
+            @foreach (var item in Model.ListCommingsoonFilm)
             {
                 <li>
                     <h4>@Html.DisplayFor(modelItem => item.Title)</h4>

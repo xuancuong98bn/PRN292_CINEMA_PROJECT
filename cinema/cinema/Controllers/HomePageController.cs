@@ -1,4 +1,6 @@
 ﻿using cinema.Contexts;
+using cinema.Models;
+using cinema.ModelsView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,11 @@ namespace cinema.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(db.Films.Take(3).OrderByDescending(f => f.PublicationDate).ToList());
+            List<Film> ListFreshFilm = db.Films.Take(3).OrderByDescending(f => f.PublicationDate).ToList();
+            List<Film> ListShowingFilm = db.Films.OrderByDescending(f => f.PublicationDate).Take(4).Where(f => f.PublicationDate < DateTime.Now).ToList();
+            List<Film> ListCommingsoonFilm = db.Films.OrderByDescending(f => f.PublicationDate).Take(3).Where(f => f.PublicationDate > DateTime.Now).ToList();
+            HomeFilmView homeFilm = new HomeFilmView(ListFreshFilm, ListShowingFilm, ListCommingsoonFilm);
+            return View(homeFilm);
         }
     }
 }
