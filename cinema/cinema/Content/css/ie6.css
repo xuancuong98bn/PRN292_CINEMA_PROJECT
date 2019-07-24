@@ -92,3 +92,29 @@
         background-color: red;
         color: white;
     }
+
+.seat-label {
+    margin-left: 365px;
+}
+
+.button-seat {
+    margin: 5px;
+    padding: 15px;
+    background-color: rgb(202, 201, 201);
+    width: 53px;
+    color: red;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    float: left;
+}
+
+    .button-seat:hover {
+        background-color: yellow;
+        color: green;
+    }
+
+    .booked {
+        background-color: red;
+        color: white;
+    }
