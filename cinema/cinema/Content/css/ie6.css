@@ -124,6 +124,11 @@
     color: white;
 }
 
+.is-me {
+    background-color: green;
+    color: black;
+}
+
 .inforticket-wrap {
     width: 62%;
     float: right;

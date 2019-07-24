@@ -59,11 +59,44 @@ namespace cinema.Controllers
                 ViewBag.SeatTypes = db.Seattypes.ToList();
                 ViewBag.Room = db.Rooms.Find(RoomID);
                 ViewBag.CurrFilm = CurrFilm;
+                User user = (User)Session["user"];
+                if (user != null)
+                {
+                    var listTicket = db.User_Tickets.Where(u => u.UserID == user.ID).ToList();
+                    var listMySeat = new List<Ticket>();
+                    foreach (var i in listTicket)
+                    {
+                        listMySeat.Add(db.Tickets.Find(i.TicketID));
+                    }
+                    ViewBag.ListMySeat = listMySeat.OrderBy(t => t.SeatID).ToList();
+                }
                 return View(db.Tickets.Where(t => t.ShowtimeID == ShowtimeID).ToList());
             }
             else
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Step3()
+        {
+            TicketView tv = (TicketView)Session["TicketV"];
+            User user = (User)Session["user"];
+            if (user != null)
+            {
+                if (tv != null)
+                {
+                    return View(tv);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Movies");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
             }
         }
 

@@ -152,6 +152,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelsView\BookingView.cs" />
+    <Compile Include="ModelsView\HomeFilmView.cs" />
     <Compile Include="ModelsView\TicketView.cs" />
     <Compile Include="Models\Film.cs" />
     <Compile Include="Models\Role.cs" />

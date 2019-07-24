@@ -30,15 +30,28 @@
                                 @*<input type="hidden" name="ModelBookingView" value='@Model' />*@
                                 <input type="hidden" name="row" id="row" value='0' />
                                 <input type="hidden" name="column" id="column" value='0' />
+                                int index = 0;
                                 for (int i = 1; i <= ViewBag.Room.RowQuantity; i++)
                                 {
                                     for (int j = 1; j <= ViewBag.Room.ColumnQuantity; j++)
                                     {
                                         int number = (i - 1) * ViewBag.Room.RowQuantity + j;
                                         bool booked = Model.Where(s => s.SeatID == number).ToList().Count == 0;
-                                        <div class="button-seat @(!booked?"booked":"")" onclick="submitForm(@i, @j, @booked)">
-                                            @number
-                                        </div>
+                                        bool isme = false;
+                                        if (ViewBag.ListMySeat != null)
+                                        {
+                                            isme = number == ViewBag.ListMySeat[index].SeatID;
+                                            index = (isme && index < ViewBag.ListMySeat.Count-1) ? (index+1) : index;
+                                            <div class="button-seat @(!booked ? "booked" : "") @(isme ? "is-me" : "")" onclick="submitForm(@i, @j, @booked)">
+                                                @number
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="button-seat @(!booked ? "booked" : "")" onclick="submitForm(@i, @j, @booked)">
+                                                @number
+                                            </div>
+                                        }
                                     }
                                 }
                             }
