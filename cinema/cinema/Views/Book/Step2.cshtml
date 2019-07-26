@@ -38,10 +38,10 @@
                                         int number = (i - 1) * ViewBag.Room.RowQuantity + j;
                                         bool booked = Model.Where(s => s.SeatID == number).ToList().Count == 0;
                                         bool isme = false;
-                                        if (ViewBag.ListMySeat != null)
+                                        if (ViewBag.ListMySeat != null && ViewBag.ListMySeat.Count != 0)
                                         {
                                             isme = number == ViewBag.ListMySeat[index].SeatID;
-                                            index = (isme && index < ViewBag.ListMySeat.Count-1) ? (index+1) : index;
+                                            index = (isme && index < ViewBag.ListMySeat.Count - 1) ? (index + 1) : index;
                                             <div class="button-seat @(!booked ? "booked" : "") @(isme ? "is-me" : "")" onclick="submitForm(@i, @j, @booked)">
                                                 @number
                                             </div>

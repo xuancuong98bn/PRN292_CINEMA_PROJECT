@@ -20,7 +20,7 @@ namespace cinema.Controllers
 
         public ActionResult Logout()
         {
-            Session.Remove("user");
+            Session.Clear();
             return RedirectToAction("Index", "Login");
         }
 
