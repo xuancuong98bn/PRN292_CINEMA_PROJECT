@@ -1,37 +1,38 @@
-﻿@model cinema.Models.User_Ticket
+﻿@model cinema.Models.Seattype
 
 @{
     ViewBag.Title = "Details";
+//    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
 
 <div>
-    <h4>User_Ticket</h4>
+    <h4>Seattype</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.UserID)
+            @Html.DisplayNameFor(model => model.Code)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.UserID)
+            @Html.DisplayFor(model => model.Code)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TicketID)
+            @Html.DisplayNameFor(model => model.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TicketID)
+            @Html.DisplayFor(model => model.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Booktime)
+            @Html.DisplayNameFor(model => model.PlusPrice)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Booktime)
+            @Html.DisplayFor(model => model.PlusPrice)
         </dd>
 
         <dt>

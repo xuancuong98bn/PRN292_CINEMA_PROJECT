@@ -39,6 +39,9 @@ namespace cinema.Areas.Admin.Controllers
         // GET: Users/Create
         public ActionResult Create()
         {
+            //dropdownlist Role to sellect
+            var seattypes = db.Roles.ToList();
+            ViewBag.RoleID = new SelectList(seattypes, "ID", "Name");
             return View();
         }
 
@@ -66,11 +69,16 @@ namespace cinema.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
             }
+
+            //dropdownlist Role to sellect
+            var seattypes = db.Roles.ToList();
+            ViewBag.RoleID = new SelectList(seattypes, "ID", "Name");
             return View(user);
         }
 

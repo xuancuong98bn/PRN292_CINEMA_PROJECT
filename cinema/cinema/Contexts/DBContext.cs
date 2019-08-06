@@ -10,9 +10,7 @@ namespace cinema.Contexts
     public class DBContext : DbContext
     {
         public DbSet<Film> Films { get; set; }
-    //    public DbSet<PriceTable> PriceTables { get; set; }
         public DbSet<Role> Roles { get; set; }
-    //    public DbSet<Room_Seattype> Room_Seattypes { get; set; }  : business table
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Seat> Seats { get; set; }
         public DbSet<Seattype> Seattypes { get; set; }
@@ -22,5 +20,12 @@ namespace cinema.Contexts
         public DbSet<Timeslot> Timeslots { get; set; }
         public DbSet<User_Ticket> User_Tickets { get; set; }
         public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder builder)
+        {
+            builder.Entity<Film>()
+                .HasIndex(u => u.Code)
+                .IsUnique();
+        }
     }
 }

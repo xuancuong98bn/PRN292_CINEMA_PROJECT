@@ -1,37 +1,47 @@
-﻿@model IEnumerable<cinema.Models.User_Ticket>
+﻿@model IEnumerable<cinema.Areas.Admin.Models.TicketBusiness>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Booking Report</h2>
+<!DOCTYPE html>
 
-<p>
-
-    @using (Html.BeginForm("Index", "Booking", FormMethod.Get))
-    {
-<p>
-    Genre: @Html.DropDownList("movieGenre", "All")
-    Film: @Html.TextBox("SearchString")
-    Username: @Html.TextBox("SearchString")
-    <input type="submit" value="Search" />
-</p>
-}
-    </p>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>Booking Management</h1>
+    <br />
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.UserID)
+                @Html.DisplayNameFor(model => model.CustomerName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TicketID)
+                @Html.DisplayNameFor(model => model.Film)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeginTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.SeateInfo)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Booktime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IsEnable)
+                @Html.DisplayNameFor(model => model.Price)
             </th>
+
             <th></th>
         </tr>
 
@@ -39,23 +49,34 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.UserID)
+                    @Html.DisplayFor(modelItem => item.CustomerName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TicketID)
+                    @Html.DisplayFor(modelItem => item.Film)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BeginTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.SeateInfo)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Booktime)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IsEnable)
+                    @Html.DisplayFor(modelItem => item.Price)
                 </td>
-                <td>
 
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
 
-                </td>
             </tr>
         }
-
     </table>
+</body>
+</html>

@@ -1,10 +1,11 @@
-﻿@model IEnumerable<cinema.Models.Room_Seattype>
+﻿@model IEnumerable<cinema.Models.Seattype>
 
 @{
     ViewBag.Title = "Index";
+  //  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Seattype Management</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,13 +13,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.RoomID)
+            @Html.DisplayNameFor(model => model.Code)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Rowth)
+            @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SeattypeID)
+            @Html.DisplayNameFor(model => model.PlusPrice)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsEnable)
@@ -29,13 +30,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.RoomID)
+            @Html.DisplayFor(modelItem => item.Code)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Rowth)
+            @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SeattypeID)
+            @Html.DisplayFor(modelItem => item.PlusPrice)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsEnable)

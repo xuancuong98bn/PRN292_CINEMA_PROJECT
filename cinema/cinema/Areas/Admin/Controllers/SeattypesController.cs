@@ -11,117 +11,107 @@ using cinema.Models;
 
 namespace cinema.Areas.Admin.Controllers
 {
-    public class SeatsController : Controller
+    public class SeattypesController : Controller
     {
         private DBContext db = new DBContext();
 
-        // GET: Admin/Seats
-        public ActionResult Index(String keyword, int seattypeCode = 0)
+        // GET: Admin/Seattypes
+        public ActionResult Index()
         {
-            var seattypes = db.Seattypes.ToList();
-            ViewBag.SeattypeID = new SelectList(seattypes, "Code", "Name");
-            return View(db.Seats.ToList());
+            return View(db.Seattypes.ToList());
         }
 
-        // GET: Admin/Seats/Details/5
+        // GET: Admin/Seattypes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Seat seat = db.Seats.Find(id);
-            if (seat == null)
+            Seattype seattype = db.Seattypes.Find(id);
+            if (seattype == null)
             {
                 return HttpNotFound();
             }
-            return View(seat);
+            return View(seattype);
         }
 
-        // GET: Admin/Seats/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        // GET: Admin/Seats/Create
-        public ActionResult Create(int RoomId)
+        // GET: Admin/Seattypes/Create
+        public ActionResult Create()
         {
-            Seat seat = new Seat();
-            seat.RoomID = RoomId;
-            return View(seat);
+            return View();
         }
 
-        // POST: Admin/Seats/Create
+        // POST: Admin/Seattypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,RoomID,Rowth,Columnth,IsEnable")] Seat seat)
+        public ActionResult Create([Bind(Include = "ID,Code,Name,PlusPrice,IsEnable")] Seattype seattype)
         {
             if (ModelState.IsValid)
             {
-                db.Seats.Add(seat);
+                db.Seattypes.Add(seattype);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(seat);
+            return View(seattype);
         }
 
-        // GET: Admin/Seats/Edit/5
+        // GET: Admin/Seattypes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Seat seat = db.Seats.Find(id);
-            if (seat == null)
+            Seattype seattype = db.Seattypes.Find(id);
+            if (seattype == null)
             {
                 return HttpNotFound();
             }
-            return View(seat);
+            return View(seattype);
         }
 
-        // POST: Admin/Seats/Edit/5
+        // POST: Admin/Seattypes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,RoomID,Rowth,Columnth,IsEnable")] Seat seat)
+        public ActionResult Edit([Bind(Include = "ID,Code,Name,PlusPrice,IsEnable")] Seattype seattype)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(seat).State = EntityState.Modified;
+                db.Entry(seattype).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(seat);
+            return View(seattype);
         }
 
-        // GET: Admin/Seats/Delete/5
+        // GET: Admin/Seattypes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Seat seat = db.Seats.Find(id);
-            if (seat == null)
+            Seattype seattype = db.Seattypes.Find(id);
+            if (seattype == null)
             {
                 return HttpNotFound();
             }
-            return View(seat);
+            return View(seattype);
         }
 
-        // POST: Admin/Seats/Delete/5
+        // POST: Admin/Seattypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Seat seat = db.Seats.Find(id);
-            db.Seats.Remove(seat);
+            Seattype seattype = db.Seattypes.Find(id);
+            db.Seattypes.Remove(seattype);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
