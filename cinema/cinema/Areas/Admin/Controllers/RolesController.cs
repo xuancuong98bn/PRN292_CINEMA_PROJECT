@@ -18,7 +18,7 @@ namespace cinema.Areas.Admin.Controllers
         // GET: Roles
         public ActionResult Index()
         {
-            return View(db.Films.ToList());
+            return View(db.Roles.ToList());
         }
 
         // GET: Roles/Details/5
@@ -39,6 +39,7 @@ namespace cinema.Areas.Admin.Controllers
         // GET: Roles/Create
         public ActionResult Create()
         {
+
             return View();
         }
 

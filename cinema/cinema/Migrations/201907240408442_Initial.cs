@@ -24,36 +24,12 @@ namespace cinema.Migrations
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
-                "dbo.PriceTables",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        ShowtimeID = c.Int(nullable: false),
-                        SeattypeID = c.Int(nullable: false),
-                        Price = c.Double(nullable: false),
-                        IsEnable = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.ID);
-            
-            CreateTable(
                 "dbo.Roles",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
                         Code = c.String(),
                         Name = c.String(),
-                        IsEnable = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.ID);
-            
-            CreateTable(
-                "dbo.Room_Seattype",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        RoomID = c.Int(nullable: false),
-                        Rowth = c.Int(nullable: false),
-                        SeattypeID = c.Int(nullable: false),
                         IsEnable = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
@@ -77,6 +53,7 @@ namespace cinema.Migrations
                     {
                         ID = c.Int(nullable: false, identity: true),
                         RoomID = c.Int(nullable: false),
+                        SeattypeID = c.Int(nullable: false),
                         Rowth = c.Int(nullable: false),
                         Columnth = c.Int(nullable: false),
                         IsEnable = c.Boolean(nullable: false),
@@ -90,6 +67,7 @@ namespace cinema.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         Code = c.String(),
                         Name = c.String(),
+                        PlusPrice = c.Int(nullable: false),
                         IsEnable = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
@@ -101,6 +79,7 @@ namespace cinema.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         FilmID = c.Int(nullable: false),
                         SlotID = c.Int(nullable: false),
+                        OriginPrice = c.Int(nullable: false),
                         IsEnable = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
@@ -112,6 +91,7 @@ namespace cinema.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         RoomID = c.Int(nullable: false),
                         TimeslotID = c.Int(nullable: false),
+                        Description = c.String(),
                         IsEnable = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
@@ -123,6 +103,7 @@ namespace cinema.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         ShowtimeID = c.Int(nullable: false),
                         SeatID = c.Int(nullable: false),
+                        Price = c.Int(nullable: false),
                         Status = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
@@ -179,9 +160,7 @@ namespace cinema.Migrations
             DropTable("dbo.Seattypes");
             DropTable("dbo.Seats");
             DropTable("dbo.Rooms");
-            DropTable("dbo.Room_Seattype");
             DropTable("dbo.Roles");
-            DropTable("dbo.PriceTables");
             DropTable("dbo.Films");
         }
     }

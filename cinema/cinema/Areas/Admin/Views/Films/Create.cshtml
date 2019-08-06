@@ -1,4 +1,4 @@
-﻿@model cinema.Models.Film
+﻿@model cinema.Areas.Admin.Models.Film2
 
 @{
     ViewBag.Title = "Create";
@@ -7,7 +7,7 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Films", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -20,6 +20,10 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                @if(ViewBag.Duplicate != null)
+                {
+                <p>Code is duplicate</p>
+                }
             </div>
         </div>
 
@@ -66,9 +70,11 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+               
+                <input type="file" name="ImageFile"/>
+              
             </div>
+            
         </div>
 
         <div class="form-group">

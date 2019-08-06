@@ -4,22 +4,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace cinema.Models
+namespace cinema.Areas.Admin.Models
 {
-    public class Film
+    public class Film2
     {
         public int ID { get; set; }
 
-        [StringLength(60, MinimumLength = 3)]
+        [Required]
+        [StringLength(30, MinimumLength = 3)]
+        [Index(IsUnique = true)]
         public String Code { get; set; }
 
+        [Required]
         [StringLength(60, MinimumLength = 3)]
         public String Title { get; set; }
 
+        [Required]
         [StringLength(60, MinimumLength = 3)]
         public String Author { get; set; }
 
+        [Required]
         [StringLength(60, MinimumLength = 3)]
         public String Actor { get; set; }
 
@@ -29,10 +35,10 @@ namespace cinema.Models
         public DateTime PublicationDate { get; set; }
         public String ContentFilm { get; set; }
 
-        [DisplayName("Upload File")]
         public String Image { get; set; }       //this to save image name
 
-    //    public HttpPostedFileBase ImageFile { get; set; }
+        [Required]
+        public HttpPostedFileBase ImageFile { get; set; }
         public bool IsEnable { get; set; }
     }
 }

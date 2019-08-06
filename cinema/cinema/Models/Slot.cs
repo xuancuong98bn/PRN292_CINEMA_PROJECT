@@ -10,6 +10,7 @@ namespace cinema.Models
         public int ID { get; set; }
         public int RoomID { get; set; }
         public int TimeslotID { get; set; }
+        public string Description { get; set; }
         public bool IsEnable { get; set; }
 
     }

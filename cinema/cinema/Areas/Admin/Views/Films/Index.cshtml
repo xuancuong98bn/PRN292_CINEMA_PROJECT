@@ -4,21 +4,22 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Film Management</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 
     <!-- Đoạn cần thêm -->
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Index","Films", FormMethod.Get))
     {
     <p>
-        Title: @Html.TextBox("SearchString") <input type="submit" value="searchByName" />
+        Title: @Html.TextBox("keyword") <input type="submit" value="Search By Name" />
     </p>
 }
     <!-- Kết thúc -->
 
     </p>
+
     <table class="table">
         <tr>
             <th>

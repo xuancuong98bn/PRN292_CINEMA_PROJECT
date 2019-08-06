@@ -1,10 +1,11 @@
-﻿@model IEnumerable<cinema.Models.Room>
+﻿@model IEnumerable<cinema.Models.Seattype>
 
 @{
     ViewBag.Title = "Index";
+  //  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Room Management</h2>
+<h2>Seattype Management</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -18,10 +19,7 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RowQuantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ColumnQuantity)
+            @Html.DisplayNameFor(model => model.PlusPrice)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsEnable)
@@ -38,10 +36,7 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RowQuantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ColumnQuantity)
+            @Html.DisplayFor(modelItem => item.PlusPrice)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsEnable)

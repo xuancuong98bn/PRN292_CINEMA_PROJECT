@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>User Management</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.Fullname)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gender)
+            <p>Gender</p>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Birthdate)
@@ -50,7 +50,14 @@
             @Html.DisplayFor(modelItem => item.Fullname)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Gender)
+         
+            @if (item.Gender) {
+                <p>Male</p>
+            }
+            else
+            {
+        <p>Female</p>
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Birthdate)
@@ -65,7 +72,7 @@
             @Html.DisplayFor(modelItem => item.IsEnable)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+         
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
