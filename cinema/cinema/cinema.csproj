@@ -149,13 +149,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907220949383_Initial.cs" />
-    <Compile Include="Migrations\201907220949383_Initial.Designer.cs">
-      <DependentUpon>201907220949383_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907231736528_InitialCreate.cs" />
-    <Compile Include="Migrations\201907231736528_InitialCreate.Designer.cs">
-      <DependentUpon>201907231736528_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201908100045508_InitialCreate.cs" />
+    <Compile Include="Migrations\201908100045508_InitialCreate.Designer.cs">
+      <DependentUpon>201908100045508_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelsView\BookingView.cs" />
@@ -326,11 +322,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907220949383_Initial.resx">
-      <DependentUpon>201907220949383_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907231736528_InitialCreate.resx">
-      <DependentUpon>201907231736528_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908100045508_InitialCreate.resx">
+      <DependentUpon>201908100045508_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
